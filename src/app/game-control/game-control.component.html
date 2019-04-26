@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <label>
+        <p *ngIf="!show"> Enter your Name and Click on Start Game!</p>
+        <p *ngIf="show">{{status}}</p>
+        <input type="text" class="form-control" *ngIf="!show" [(ngModel)]="name">
+      </label>
+
+      <button class="btn btn-outline-primary" (click)='onPlay()'>Start Game</button>
+      <button class="btn btn-outline-danger" (click)='onScore()'>My Highscore</button>
+
+    </div>
+    <div class="col-md-6">
+      <div class="card" *ngIf="show">
+        <div class="card-header">
+          <h4>Input</h4>
+
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h4>{{number1}} * {{number2}}</h4>
+          </li>
+          <li class="list-group-item">
+            <!-- <h4><strong>{{result}}</strong></h4> -->
+            <input type="text" class="form-control" [(ngModel)]="resultInput">
+            <button class="btn btn-outline-success" (click)='onSend()'>Send result</button>
+
+          </li>
+          <li class="list-group-item" *ngIf="hideResult">
+            <p [ngStyle]="{'color': getColor()}">{{resultStatus}}<span class="glyphicon glyphicon-ok"></span></p>
+          </li>
+          <li class="list-group-item" *ngIf="hide">
+            <p>{{count}}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

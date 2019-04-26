@@ -1,2 +1,13 @@
-<h4>Welcome to my Game</h4>
-<router-outlet></router-outlet>
+<app-header></app-header>
+
+<div class="container">
+  <div class="card-header">
+    <h2><u>Welcome to my Game</u></h2>
+    <!--  <p> Please Click on Start to do an Addition!</p> -->
+  </div>
+  <div class="card-body">
+    <app-game-control (intervalFired)="onNumberFired($event)"></app-game-control>
+  </div>
+  <router-outlet></router-outlet>
+
+</div>
